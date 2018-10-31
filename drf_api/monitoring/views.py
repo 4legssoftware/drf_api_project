@@ -1,4 +1,5 @@
 from rest_framework import status, viewsets
+from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from . import Health
@@ -12,18 +13,14 @@ checks = {
 class HealthCheckViewSet(viewsets.ViewSet):
     serializer_class = serializers.HealthSerializer
 
-    def list(self, request):
+    def list(self, _request):
         serializer = serializers.HealthSerializer(
             instance=checks.values(), many=True)
         return Response(serializer.data)
 
-    # def retrieve(self, request, pk=None):
-    #     try:
-    #         check = checks[int(pk)]
-    #     except KeyError:
-    #         return Response(status=status.HTTP_404_NOT_FOUND)
-    #     except ValueError:
-    #         return Response(status=status.HTTP_400_BAD_REQUEST)
-    #
-    #     serializer = serializers.HealthSerializer(instance=check)
-    #     return Response(serializer.data)
+    @action(detail=False)
+    def check(self, _request):
+        data = {
+            'status': 'healthy'
+        }
+        return Response(data)
