@@ -1,16 +1,13 @@
 from rest_framework import serializers
 from . import Health
 
-STATUSES = (
-    'Healthy',
-    'Degraded',
-    'Unstable',
-)
+HEALTH_STATUS_HEALTHY = 'healthy'
+HEALTH_STATUS_DEGRADED = 'degraded'
+HEALTH_STATUS_UNSTABLE = 'unstable'
 
 
 class HealthSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    status = serializers.ChoiceField(choices=STATUSES, default='Healthy')
+    status = serializers.CharField(max_length=256)
 
     def create(self, validated_data):
         return Health(id=None, **validated_data)
