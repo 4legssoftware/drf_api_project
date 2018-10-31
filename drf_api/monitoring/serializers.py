@@ -7,7 +7,7 @@ HEALTH_STATUS_UNSTABLE = 'unstable'
 
 
 class HealthSerializer(serializers.Serializer):
-    status = serializers.CharField(max_length=256)
+    status = serializers.CharField(max_length=256, default=HEALTH_STATUS_UNSTABLE)
 
     def create(self, validated_data):
         return Health(id=None, **validated_data)
