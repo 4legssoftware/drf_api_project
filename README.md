@@ -8,3 +8,5 @@ This a simple sample app repo for the purposes of experimentation and sharing of
 ## Tests
 `python manage.py test`
 `python manage.py test --no-skip`
+
+Tests produce coverage results that you can view by opening the generated ./cover/index.html file.

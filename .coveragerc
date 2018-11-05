@@ -1,8 +1,0 @@
-[run]
-plugins =
-    django_coverage_plugin
-omit =
-    */migrations*
-    */python3.7/*
-
-[html]
