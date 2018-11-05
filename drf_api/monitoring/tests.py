@@ -1,3 +1,5 @@
+from unittest import skip
+
 from drf_api.monitoring.models import Health
 import nose.tools as nt
 
@@ -14,6 +16,7 @@ class TestHealth(object):
         self.health.started()
         nt.assert_equal(self.health.get_status(), "healthy")
 
+    # @skip("WIP")
     def test_degraded(self):
         self.health.started()
         self.health.service_error()
