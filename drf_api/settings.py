@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'drf_api.monitoring',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'drf_api.monitoring',
+    'django_nose',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,5 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
     ]
 }
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
