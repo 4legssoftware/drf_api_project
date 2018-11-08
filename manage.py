@@ -3,6 +3,8 @@ import os
 import sys
 from time import sleep
 
+from drf_api.settings import NOSE_COVER_MIN_PERCENTAGE, NOSE_COVER_WAIT
+
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf_api.settings')
     try:
@@ -30,6 +32,6 @@ if __name__ == '__main__':
         cov.save()
         cov.html_report(directory='cover')
         coverage_percent = cov.report()
-        sleep(1)  # in case your run exits before the output is displayed
-        if coverage_percent < 90.0:
+        sleep(NOSE_COVER_WAIT)
+        if coverage_percent < NOSE_COVER_MIN_PERCENTAGE:
             exit(1)
