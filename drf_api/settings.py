@@ -126,6 +126,8 @@ REST_FRAMEWORK = {
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
+NOSE_COVER_MIN_PERCENTAGE = 90
+
 NOSE_ARGS = [
     '--cover-erase',
     '--cover-package=drf_api',

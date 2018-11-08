@@ -1,10 +1,9 @@
-from unittest import skip
-
-from drf_api.monitoring.models import Health
 import nose.tools as nt
 
+from drf_api.monitoring.models import Health
 
-class TestHealth(object):
+
+class TestHealth:
 
     def setup(self):
         self.health = Health()
@@ -16,7 +15,7 @@ class TestHealth(object):
         self.health.started()
         nt.assert_equal(self.health.get_status(), "healthy")
 
-    # @skip("WIP")
+    # @skip("if you want ignore a test temporarily")
     def test_degraded(self):
         self.health.started()
         self.health.service_error()

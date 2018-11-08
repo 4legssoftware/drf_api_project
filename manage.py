@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+from time import sleep
 
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf_api.settings')
@@ -28,4 +29,7 @@ if __name__ == '__main__':
         cov.stop()
         cov.save()
         cov.html_report(directory='cover')
-        cov.report()
+        coverage_percent = cov.report()
+        sleep(1)  # in case your run exits before the output is displayed
+        if coverage_percent < 90.0:
+            exit(1)
