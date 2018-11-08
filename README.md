@@ -14,3 +14,4 @@ This a simple sample app repo for the purposes of experimentation and sharing of
 comment to the end of the line
 * The minimum coverage allowed setting can be set via `NOSE_COVER_MIN_PERCENTAGE`
 * If you need a wait for coverage to finish reporting set `NOSE_COVER_WAIT`
+* Other [Coverage Docs](https://coverage.readthedocs.io/en/latest/index.html)
