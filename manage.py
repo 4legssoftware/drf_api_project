@@ -19,7 +19,7 @@ if __name__ == '__main__':
     if is_testing:
         import coverage
 
-        cov = coverage.coverage(source=['drf_api'], omit=['*/tests/*'])
+        cov = coverage.coverage(source=['drf_api'], omit=['drf_api/*/tests.py'], )
         cov.erase()
         cov.start()
 
